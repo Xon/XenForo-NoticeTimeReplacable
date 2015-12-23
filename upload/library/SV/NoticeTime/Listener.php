@@ -8,25 +8,67 @@ class SV_NoticeTime_Listener
         $format = array();
         if ($interval->y)
         {
-            $format[] = '%y years';
+            if ($interval->y == 1)
+            {
+                $format[] = '%y year';
+            }
+            else
+            {
+                $format[] = '%y years';
+            }
         }
         if ($interval->m)
         {
-            $format[] = '%m months';
+            if ($interval->m == 1)
+            {
+                $format[] = '%m month';
+            }
+            else
+            {
+                $format[] = '%m months';
+            }
         }
         if ($interval->d)
         {
-            $format[] = '%d days';
+            if ($interval->d == 1)
+            {
+                $format[] = '%d day';
+            }
+            else
+            {
+                $format[] = '%d days';
+            }
         }
         if ($interval->h)
         {
-            $format[] = '%h hours';
+            if ($interval->h == 1)
+            {
+                $format[] = '%h hour';
+            }
+            else
+            {
+                $format[] = '%h hours';
+            }
         }
         if ($interval->i)
         {
-            $format[] = '%i minutes';
+            if ($interval->i == 1)
+            {
+              $format[] = '%i minute';
+            }
+            else
+            {
+              $format[] = '%i minutes';
+            }
         }
-        $format[] = '%s seconds';
+        if ($interval->s == 1)
+        {
+            $format[] = '%s second';
+        }
+        else
+        {
+            $format[] = '%s seconds';
+        }
         return $interval->format(join(', ', $format));
     }
 
